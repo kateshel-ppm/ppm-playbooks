@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Найм выдающихся людей — Плейбук</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#ffffff;--bg-soft:#f4f5f7;--line:#e4e7eb;--txt:#10161a;--muted:#6b727b;--accent:#377ef0;--accent-hover:#296ad5;--accent-soft:#eef3fd;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);font-family:'Manrope',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 44px}
+  @media(min-width:1180px){.wrap{margin-left:320px;max-width:1320px;padding-left:84px;padding-right:84px}}
+
+  header.hero{padding:72px 0 8px}
+  .read-time{display:inline-block;background:#eef0f2;color:#6b727b;font-size:13px;font-weight:500;padding:7px 15px;border-radius:999px;margin-bottom:22px}
+  .kicker{color:var(--accent);text-transform:uppercase;letter-spacing:.16em;font-size:13px;font-weight:700;margin-bottom:14px}
+  h1{font-size:34px;line-height:1.08;font-weight:800;letter-spacing:-.02em;margin-bottom:14px;color:#10161a}
+  .lede{font-size:15px;color:var(--muted);max-width:680px}
+
+  /* MATRIX */
+  .matrix{display:grid;grid-template-columns:250px 1fr 360px;gap:16px;margin:44px 0 0;align-items:stretch}
+  .mx-h-left{grid-column:1 / 3;grid-row:1;color:var(--accent);font-weight:800;font-size:16px;letter-spacing:-.01em;padding-bottom:4px}
+  .mx-h-right{grid-column:3;grid-row:1;color:#10161a;font-weight:800;font-size:16px;letter-spacing:-.01em;padding-bottom:4px}
+  .theme{grid-column:1;background:var(--bg-soft);border-radius:16px;display:flex;align-items:center;justify-content:center;
+    text-align:center;padding:22px 16px;font-size:22px;font-weight:800;letter-spacing:-.02em;color:#10161a;line-height:1.14}
+  .check{grid-column:2;display:flex;gap:12px;align-items:flex-start;padding:12px 6px}
+  .check .box{flex-shrink:0;width:20px;height:20px;border:2px solid var(--accent);border-radius:6px;display:flex;
+    align-items:center;justify-content:center;color:var(--accent);font-size:12px;margin-top:2px;background:#fff}
+  .check .txt{font-size:15px;line-height:1.48;color:#1a1f24}
+  .check .txt b{font-weight:700;color:#10161a}
+  .card{grid-column:3;background:var(--accent);border-radius:16px;display:flex;align-items:center;gap:16px;
+    padding:18px 20px;text-decoration:none;transition:background .15s,transform .15s,box-shadow .15s}
+  .card:hover{background:var(--accent-hover);transform:translateY(-1px);box-shadow:0 8px 22px rgba(55,126,240,.22)}
+  .card .cn{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.22);color:#fff;
+    font-weight:700;display:flex;align-items:center;justify-content:center;font-size:13px}
+  .card .ct{color:#fff;font-weight:700;font-size:16px;line-height:1.22}
+
+  .wide{display:flex;align-items:center;gap:16px;background:#6b7280;border-radius:16px;padding:20px 22px;
+    text-decoration:none;margin-top:14px;transition:background .15s,transform .15s}
+  .wide:hover{background:#5b626b;transform:translateY(-1px)}
+  .wide .cn{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.25);color:#fff;
+    font-weight:700;display:flex;align-items:center;justify-content:center;font-size:13px}
+  .wide .ct{color:#fff;font-weight:700;font-size:16px}
+
+  @media(max-width:980px){
+    .matrix{display:block;margin-top:32px}
+    .mx-h-left,.mx-h-right{display:none}
+    .theme{font-size:22px;padding:18px;margin:18px 0 10px}
+    .check{padding:10px 4px}
+    .card{margin-bottom:10px}
+  }
+
+  footer{padding:44px 0 90px;color:#6b727b;font-size:13px}
+  footer a{color:#6b727b}
+
+  /* SIDEBAR (dark) */
+  .sidebar{--bg-soft:#13161b;--line:#262b33;--txt:#e7e9ec;--muted:#9aa3ad;color:#e7e9ec;
+    position:fixed;top:0;left:0;width:320px;height:100vh;background:#0e1116;border-right:1px solid #262b33;padding:28px 22px;overflow-y:auto;z-index:40;transition:transform .25s ease}
+  .sb-back{display:inline-flex;align-items:center;gap:10px;color:var(--muted);text-decoration:none;font-size:15px;
+    background:var(--bg-soft);border:1px solid var(--line);padding:9px 16px;border-radius:10px;margin-bottom:32px;transition:color .15s,border-color .15s}
+  .sb-back:hover{color:var(--accent);border-color:var(--accent)}
+  .sb-title{font-size:17px;font-weight:600;margin-bottom:16px}
+  .sb-group{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+  .sb-group > .sb-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;cursor:pointer;font-weight:600;font-size:14px;user-select:none}
+  .sb-head .sb-link{flex:1;color:inherit;text-decoration:none}
+  .sb-head .sb-link:hover{color:var(--accent)}
+  .sb-head .chev{color:var(--muted);transition:transform .2s;font-size:11px;cursor:pointer;padding:4px 2px}
+  .sb-group.collapsed .chev{transform:rotate(-90deg)}
+  .sb-items{padding:2px 12px 10px 8px;max-height:680px;overflow:hidden;transition:max-height .25s ease}
+  .sb-group.collapsed .sb-items{max-height:0;padding-top:0;padding-bottom:0}
+  .sb-items a{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--muted);font-size:13px;line-height:1.35;padding:7px 8px;border-radius:8px;transition:color .15s,background .15s}
+  .sb-items a:hover{color:var(--txt);background:rgba(255,255,255,.03)}
+  .sb-items a .n{min-width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--muted);flex-shrink:0}
+  .sb-toggle{display:none;position:fixed;top:16px;left:16px;z-index:50;background:var(--bg-soft);border:1px solid var(--line);color:var(--txt);width:44px;height:44px;border-radius:10px;font-size:20px;cursor:pointer}
+  .sb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:39}
+  @media(max-width:1179px){
+    .sidebar{transform:translateX(-100%)}
+    body.nav-open .sidebar{transform:translateX(0)}
+    body.nav-open .sb-overlay{display:block}
+    .sb-toggle{display:flex;align-items:center;justify-content:center}
+  }
+</style>
+</head>
+<body>
+
+<button class="sb-toggle" onclick="document.body.classList.toggle('nav-open')">☰</button>
+<div class="sb-overlay" onclick="document.body.classList.remove('nav-open')"></div>
+
+<aside class="sidebar">
+  <a class="sb-back" href="index.html"><span>←</span> Назад</a>
+  <div class="sb-title">Все плейбуки</div>
+  <div class="sb-group">
+    <div class="sb-head"><a href="hiring.html" class="sb-link">Найм выдающихся людей</a><span class="chev" onclick="this.closest('.sb-group').classList.toggle('collapsed')">▾</span></div>
+    <div class="sb-items">
+      <a href="playbooks.html#h01"><span class="n">01</span> Профиль под быстрый рост</a>
+      <a href="playbooks.html#h02"><span class="n">02</span> Три интервью для верного решения</a>
+      <a href="playbooks.html#h03"><span class="n">03</span> Рамка таланта</a>
+      <a href="playbooks.html#h04"><span class="n">04</span> Стандартизированный процесс найма</a>
+      <a href="playbooks.html#h05"><span class="n">05</span> Команда рекрутинга</a>
+      <a href="playbooks.html#h06"><span class="n">06</span> Пример · Data-инженеры</a>
+      <a href="playbooks.html#h07"><span class="n">07</span> В фокусе · People в Плати по миру</a>
+    </div>
+  </div>
+  <div class="sb-group collapsed">
+    <div class="sb-head" onclick="this.parentNode.classList.toggle('collapsed')">Управление результативностью <span class="chev">▾</span></div>
+    <div class="sb-items">
+      <a href="playbooks.html#p01"><span class="n">01</span> Философия таланта</a>
+      <a href="playbooks.html#p02"><span class="n">02</span> Команда по результативности</a>
+      <a href="playbooks.html#p03"><span class="n">03</span> Фреймворк оценки</a>
+      <a href="playbooks.html#p04"><span class="n">04</span> Процесс ревью</a>
+      <a href="playbooks.html#p05"><span class="n">05</span> Карьерные траектории</a>
+      <a href="playbooks.html#p06"><span class="n">06</span> Бонусы за результат</a>
+      <a href="playbooks.html#p07"><span class="n">07</span> Компенсации и пересмотр</a>
+      <a href="playbooks.html#p08"><span class="n">08</span> В фокусе · People в Плати по миру</a>
+    </div>
+  </div>
+</aside>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="read-time">1 минута на обзор</div>
+    <div class="kicker">Плейбук</div>
+    <h1>Найм выдающихся людей</h1>
+    <p class="lede">Краткая карта плейбука: ключевые протоколы найма слева и соответствующие разделы справа.</p>
+  </header>
+
+  <div class="matrix">
+    <div class="mx-h-left">Протоколы рекрутинга</div>
+    <div class="mx-h-right">Релевантный раздел плейбука</div>
+
+    <!-- Находим лучших -->
+    <div class="theme" style="grid-row:2 / span 2">Находим<br>лучших</div>
+
+    <div class="check" style="grid-row:2"><span class="box">✓</span><span class="txt">Нанимайте <b>амбициозных решателей задач</b>, которые расцветают в <b>динамичной среде</b> и способны <b>собирать сильные команды</b>, а не «корпоративные» профили.</span></div>
+    <a class="card" style="grid-row:2" href="playbooks.html#h01"><span class="cn">01</span><span class="ct">Профиль под быстрый рост</span></a>
+
+    <div class="check" style="grid-row:3"><span class="box">✓</span><span class="txt"><b>Три интервью</b> помимо профессиональной проверки выделяют лучших: <b>решение задач</b>, <b>bar raiser</b> на ценности и достижения, <b>лидерство и работа с людьми</b>.</span></div>
+    <a class="card" style="grid-row:3" href="playbooks.html#h02"><span class="cn">02</span><span class="ct">Три интервью для верного решения</span></a>
+
+    <!-- Нанимаем в масштабе -->
+    <div class="theme" style="grid-row:4 / span 2">Нанимаем<br>в масштабе</div>
+
+    <div class="check" style="grid-row:4"><span class="box">✓</span><span class="txt">Назначьте на каждую роль <b>владельца</b>, который определяет <b>нужные навыки и планку таланта</b> и проектирует процесс интервью.</span></div>
+    <a class="card" style="grid-row:4" href="playbooks.html#h03"><span class="cn">03</span><span class="ct">Рамка таланта</span></a>
+
+    <div class="check" style="grid-row:5"><span class="box">✓</span><span class="txt">Выстройте <b>стандартизированный подход</b> на каждом шаге найма, чтобы держать высокую планку таланта по мере роста.</span></div>
+    <a class="card" style="grid-row:5" href="playbooks.html#h04"><span class="cn">04</span><span class="ct">Стандартизированный процесс найма</span></a>
+
+    <!-- Строим команду -->
+    <div class="theme" style="grid-row:6">Строим<br>команду</div>
+
+    <div class="check" style="grid-row:6"><span class="box">✓</span><span class="txt">Постройте <b>команду рекрутинга по модели продаж</b> с <b>бонусами за квартальные цели</b> и масштабируйте её под рост потребности в найме.</span></div>
+    <a class="card" style="grid-row:6" href="playbooks.html#h05"><span class="cn">05</span><span class="ct">Команда рекрутинга</span></a>
+  </div>
+
+  <a class="wide" href="playbooks.html#h06"><span class="cn">06</span><span class="ct">Пример · Data-инженеры</span></a>
+  <a class="wide" href="playbooks.html#h07"><span class="cn">07</span><span class="ct">В фокусе · People в Плати по миру</span></a>
+
+  <footer>
+    <p>Внутренняя база знаний «Плати по миру». Адаптация методологии найма под наш контекст. Источник: <a href="https://quantumlightcapital.com/playbooks/hiring">QuantumLight Playbooks</a>.</p>
+  </footer>
+
+</div>
+</body>
+</html>

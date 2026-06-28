@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Библиотека плейбуков</title>
+<style>
+  :root{
+    --bg:#0b0d10;
+    --bg-soft:#13161b;
+    --card:#15191f;
+    --line:#262b33;
+    --txt:#e7e9ec;
+    --muted:#9aa3ad;
+    --accent:#377ef0;
+    --accent-hover:#296ad5;
+    --accent-soft:#0f1d33;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--bg);color:var(--txt);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+  header.hero{padding:96px 0 56px;border-bottom:1px solid var(--line)}
+  .eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.18em;font-size:13px;font-weight:600;margin-bottom:24px}
+  h1{font-size:56px;line-height:1.05;font-weight:700;letter-spacing:-.02em;margin-bottom:20px}
+  .lede{font-size:19px;color:var(--muted);max-width:680px}
+
+  .lib{padding:64px 0 32px}
+  .cat{border-top:1px solid var(--line);padding:44px 0;display:grid;grid-template-columns:280px 1fr;gap:24px 48px}
+  @media(max-width:780px){.cat{grid-template-columns:1fr;gap:16px}}
+  .cat-head .tag{display:inline-block;background:var(--accent-soft);color:var(--accent);font-size:12px;font-weight:600;
+    padding:4px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px}
+  .cat-head h2{font-size:28px;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
+  .cat-head p{color:var(--muted);font-size:15px}
+  .cat-head .count{color:var(--accent);font-size:13px;font-weight:600;margin-top:10px}
+
+  .items{display:flex;flex-direction:column}
+  .items a, .items .soon{
+    display:flex;gap:14px;align-items:baseline;
+    text-decoration:none;color:var(--txt);
+    padding:13px 0;border-bottom:1px solid var(--line);
+    transition:color .15s,padding .15s;
+  }
+  .items a:hover{color:var(--accent);padding-left:6px}
+  .items .n{color:var(--accent);font-variant-numeric:tabular-nums;font-weight:600;font-size:14px;min-width:26px}
+  .items .ttl{flex:1}
+  .items .ttl small{display:block;color:var(--muted);font-size:13px;font-weight:400;margin-top:2px}
+  .items .soon{color:#5b626b;cursor:default}
+  .items .soon .n{color:#3a414b}
+  .badge-soon{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#5b626b;border:1px solid var(--line);
+    border-radius:999px;padding:2px 8px;align-self:center}
+  .arrow{color:var(--accent);font-size:14px;opacity:0;transition:opacity .15s}
+  .items a:hover .arrow{opacity:1}
+
+  footer{padding:56px 0 96px;border-top:1px solid var(--line);color:#6b727b;font-size:13px}
+  footer a{color:#6b727b}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Плати по миру · База знаний</div>
+    <h1>Библиотека плейбуков</h1>
+    <p class="lede">Практические руководства по найму, результативности и управлению командой при быстром росте. Открытые материалы готовы к чтению, остальные — в работе.</p>
+  </header>
+
+  <div class="lib">
+
+    <!-- НАЙМ -->
+    <section class="cat">
+      <div class="cat-head">
+        <span class="tag">Готово</span>
+        <h2><a href="hiring.html" style="color:inherit;text-decoration:none">Найм</a></h2>
+        <p>Как находить и нанимать выдающихся людей быстрее конкурентов.</p>
+        <div class="count"><a href="hiring.html" style="color:var(--accent);text-decoration:none">7 разделов · открыть обложку →</a></div>
+      </div>
+      <div class="items">
+        <a href="playbooks.html#h01"><span class="n">01</span><span class="ttl">Профиль под быстрый рост<small>Амбициозные решатели задач, а не «корпоративные» резюме</small></span><span class="arrow">→</span></a>
+        <a href="playbooks.html#h02"><span class="n">02</span><span class="ttl">Три интервью для верного решения<small>Ценности, решение задач, лидерство</small></span><span class="arrow">→</span></a>
+        <a href="playbooks.html#h03"><span class="n">03</span><span class="ttl">Рамка таланта<small>Владелец роли фиксирует эталон заранее</small></span><span class="arrow">→</span></a>
+        <a href="playbooks.html#h04"><span class="n">04</span><span class="ttl">Стандартизированный процесс найма<small>Единый воспроизводимый процесс держит качество</small></span><span class="arrow">→</span></a>
+        <a href="playbooks.html#h05"><span class="n">05</span><span class="ttl">Команда рекрутинга<small>Найм по модели отдела продаж</small></span><span class="arrow">→</span></a>
+        <a href="playbooks.html#h06"><span class="n">06</span><span class="ttl">Пример · Data-инженеры<small>Как рамка таланта разворачивается под роль</small></span><span class="arrow">→</span></a>
+        <a href="playbooks.html#h07"><span class="n">07</span><span class="ttl">В фокусе · People в Плати по миру<small>Как принципы работают на практике</small></span><span class="arrow">→</span></a>
+      </div>
+    </section>
+
+    <!-- РЕЗУЛЬТАТИВНОСТЬ -->
+    <section class="cat">
+      <div class="cat-head">
+        <span class="tag">Готово</span>
+        <h2>Результативность</h2>
+        <p>Как удерживать и растить A-игроков и не задерживать слабый результат.</p>
+        <div class="count">8 разделов · читать</div>
+      </div>
+      <div class="items">
+        <a href="playbooks.html#p01"><span class="n">01</span><span class="ttl">Философия таланта<small>Фокус на A-игроках, приоритет CEO</small></span><span class="arrow">→</span></a>
+        <a href="playbooks.html#p02"><span class="n">02</span><span class="ttl">Команда по результативности<small>Отдельная функция вне HR и рекрутинга</small></span><span class="arrow">→</span></a>
+        <a href="playbooks.html#p03"><span class="n">03</span><span class="ttl">Фреймворк оценки<small>Результаты, навыки, культура · шкала 5 уровней</small></span><span class="arrow">→</span></a>
+        <a href="playbooks.html#p04"><span class="n">04</span><span class="ttl">Процесс ревью<small>Быстрый ежеквартальный цикл с калибровкой</small></span><span class="arrow">→</span></a>
+        <a href="playbooks.html#p05"><span class="n">05</span><span class="ttl">Карьерные траектории<small>Повышение — награда за результат, не удержание</small></span><span class="arrow">→</span></a>
+        <a href="playbooks.html#p06"><span class="n">06</span><span class="ttl">Бонусы за результат<small>Экспоненциальные бонусы и удержание через долю</small></span><span class="arrow">→</span></a>
+        <a href="playbooks.html#p07"><span class="n">07</span><span class="ttl">Компенсации и пересмотр<small>Конкурентные оклады через бенчмарки</small></span><span class="arrow">→</span></a>
+        <a href="playbooks.html#p08"><span class="n">08</span><span class="ttl">В фокусе · People в Плати по миру<small>Система результативности на практике</small></span><span class="arrow">→</span></a>
+      </div>
+    </section>
+
+    <!-- ВЛИЯНИЕ ОСНОВАТЕЛЯ -->
+    <section class="cat">
+      <div class="cat-head">
+        <span class="tag" style="background:transparent;border:1px solid var(--line);color:var(--muted)">В работе</span>
+        <h2>Влияние основателя</h2>
+        <p>Как руководителю масштабировать собственный эффект.</p>
+        <div class="count" style="color:#5b626b">2 раздела · скоро</div>
+      </div>
+      <div class="items">
+        <div class="soon"><span class="n">01</span><span class="ttl">Фокус и рычаги основателя</span><span class="badge-soon">Скоро</span></div>
+        <div class="soon"><span class="n">02</span><span class="ttl">Chief of Staff: операционная опора</span><span class="badge-soon">Скоро</span></div>
+      </div>
+    </section>
+
+    <!-- УПРАВЛЕНИЕ КОМПАНИЕЙ -->
+    <section class="cat">
+      <div class="cat-head">
+        <span class="tag" style="background:transparent;border:1px solid var(--line);color:var(--muted)">В работе</span>
+        <h2>Управление компанией</h2>
+        <p>Структура, цели и ритм работы организации.</p>
+        <div class="count" style="color:#5b626b">3 раздела · скоро</div>
+      </div>
+      <div class="items">
+        <div class="soon"><span class="n">01</span><span class="ttl">Организационный дизайн</span><span class="badge-soon">Скоро</span></div>
+        <div class="soon"><span class="n">02</span><span class="ttl">Постановка и исполнение целей</span><span class="badge-soon">Скоро</span></div>
+        <div class="soon"><span class="n">03</span><span class="ttl">Ритм встреч и процедуры</span><span class="badge-soon">Скоро</span></div>
+      </div>
+    </section>
+
+    <!-- БАЗОВЫЕ МАТЕРИАЛЫ -->
+    <section class="cat">
+      <div class="cat-head">
+        <span class="tag" style="background:transparent;border:1px solid var(--line);color:var(--muted)">В работе</span>
+        <h2>Базовые материалы</h2>
+        <p>Короткие справочники по ключевым темам.</p>
+        <div class="count" style="color:#5b626b">5 разделов · скоро</div>
+      </div>
+      <div class="items">
+        <div class="soon"><span class="n">01</span><span class="ttl">Культура компании</span><span class="badge-soon">Скоро</span></div>
+        <div class="soon"><span class="n">02</span><span class="ttl">Работа с советом директоров</span><span class="badge-soon">Скоро</span></div>
+        <div class="soon"><span class="n">03</span><span class="ttl">Найм на руководящие позиции</span><span class="badge-soon">Скоро</span></div>
+        <div class="soon"><span class="n">04</span><span class="ttl">Согласование расходов</span><span class="badge-soon">Скоро</span></div>
+        <div class="soon"><span class="n">05</span><span class="ttl">Оценка стратегических инициатив</span><span class="badge-soon">Скоро</span></div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>Внутренняя база знаний «Плати по миру». Открытые плейбуки адаптированы под наш контекст. Источник методологии: <a href="https://quantumlightcapital.com/playbooks-home">QuantumLight Playbooks</a>.</p>
+  </footer>
+
+</div>
+</body>
+</html>
